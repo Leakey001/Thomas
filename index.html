@@ -258,67 +258,67 @@
         }
 
         /* From Uiverse.io by alexruix */
-        .card { 
-            --background: linear-gradient(to left, #f7ba2b 0%, #ea5358 100%); 
-            width: 190px; 
-            height: 254px; 
-            padding: 5px; 
-            border-radius: 1rem; 
-            overflow: visible; 
-            background: #f7ba2b; 
-            background: var(--background); 
-            position: relative; 
-            z-index: 1; 
+        .card {
+            --background: linear-gradient(to left, #f7ba2b 0%, #ea5358 100%);
+            width: 190px;
+            height: 254px;
+            padding: 5px;
+            border-radius: 1rem;
+            overflow: visible;
+            background: #f7ba2b;
+            background: var(--background);
+            position: relative;
+            z-index: 1;
             margin: 0 auto;
-        } 
-        
-        .card::after { 
-            position: absolute; 
-            content: ""; 
-            top: 30px; 
-            left: 0; 
-            right: 0; 
-            z-index: -1; 
-            height: 100%; 
-            width: 100%; 
-            transform: scale(0.8); 
-            filter: blur(25px); 
-            background: #f7ba2b; 
-            background: var(--background); 
-            transition: opacity .5s; 
-        } 
-        
-        .card-info { 
-            --color: #181818; 
-            background: var(--color); 
-            color: var(--color); 
-            display: flex; 
+        }
+
+        .card::after {
+            position: absolute;
+            content: "";
+            top: 30px;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            height: 100%;
+            width: 100%;
+            transform: scale(0.8);
+            filter: blur(25px);
+            background: #f7ba2b;
+            background: var(--background);
+            transition: opacity .5s;
+        }
+
+        .card-info {
+            --color: #181818;
+            background: var(--color);
+            color: var(--color);
+            display: flex;
             flex-direction: column;
-            justify-content: center; 
-            align-items: center; 
-            width: 100%; 
-            height: 100%; 
-            overflow: visible; 
-            border-radius: .7rem; 
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+            border-radius: .7rem;
             padding: 1rem;
-        } 
-        
-        .card .title { 
-            font-weight: bold; 
-            letter-spacing: .1em; 
+        }
+
+        .card .title {
+            font-weight: bold;
+            letter-spacing: .1em;
             color: #f7ba2b;
             margin-bottom: 1rem;
             font-size: 1.3rem;
-        } 
-        
-        /*Hover*/ 
-        .card:hover::after { 
-            opacity: 0; 
-        } 
-        
-        .card:hover .card-info { 
-            color: #f7ba2b; 
-            transition: color 1s; 
+        }
+
+        /*Hover*/
+        .card:hover::after {
+            opacity: 0;
+        }
+
+        .card:hover .card-info {
+            color: #f7ba2b;
+            transition: color 1s;
         }
 
         .skill-tags {
@@ -416,6 +416,14 @@
             text-shadow: 0 0 10px rgba(64, 224, 208, 0.5);
         }
 
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem; /* Increased gap for more spacing */
+            margin-top: 3rem;
+        }
+
         /* Contact Section */
         .contact {
             background: rgba(255, 255, 255, 0.02);
@@ -483,7 +491,7 @@
             .container {
                 padding: 0 2rem;
             }
-            
+
             .projects-grid {
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             }
@@ -508,7 +516,7 @@
             .nav-links {
                 display: none;
             }
-            
+
             .hero {
                 padding: 4rem 1rem 0;
             }
@@ -537,7 +545,7 @@
                 align-items: center;
                 gap: 1rem;
             }
-            
+
             .btn {
                 width: 100%;
                 max-width: 300px;
@@ -753,21 +761,325 @@
             width: 0%;
             transition: width 0.1s ease;
         }
+
+        /* Service Card Styles */
+        .service-card {
+            width: 17em;
+            height: 22.5em;
+            background: #171717;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+            clip-path: polygon(30px 0%, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0% 30px);
+            border-top-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            margin: 0 auto; /* Added for centering in grid */
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease-in-out;
+            z-index: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: linear-gradient(135deg, #1f1f1f, #2a2a2a);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.1);
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card span {
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            display: block;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            z-index: 2;
+            position: relative;
+        }
+
+        .service-card:hover span {
+            color: #ff4444;
+            text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .service-card .info {
+            font-weight: 400;
+            color: white;
+            display: block;
+            text-align: center;
+            font-size: 0.72em;
+            margin: 1em;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+            z-index: 2;
+            position: relative;
+        }
+
+        .service-card:hover .info {
+            opacity: 1;
+            color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .service-card .img { /* This rule is now effectively unused if the .img div is removed */
+            width: 4.8em;
+            height: 4.8em;
+            background: white;
+            border-radius: 15px;
+            margin: auto;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            position: relative;
+        }
+
+        .service-card:hover .img { /* This rule is now effectively unused if the .img div is removed */
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+            background: linear-gradient(135deg, #ffffff, #f0f0f0);
+        }
+
+        .service-card .share {
+            margin-top: 1em;
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+            z-index: 2;
+            position: relative;
+        }
+
+        .service-card a {
+            color: white;
+            transition: all 0.4s ease-in-out;
+            padding: 0.5em;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: scale(1);
+        }
+
+        .service-card a:hover {
+            color: #ff4444;
+            background: rgba(255, 68, 68, 0.1);
+            transform: scale(1.2) rotate(10deg);
+            box-shadow: 0 0 15px rgba(255, 68, 68, 0.3);
+        }
+
+        .service-card:hover a {
+            animation: socialBounce 0.6s ease-in-out;
+        }
+
+        @keyframes socialBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .service-card button {
+            padding: 0.8em 1.7em;
+            display: block;
+            margin: auto;
+            border-radius: 25px;
+            border: none;
+            font-weight: bold;
+            background: #ffffff;
+            color: rgb(0, 0, 0);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .service-card button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .service-card button:hover {
+            background: #ff4444;
+            color: white;
+            cursor: pointer;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 68, 68, 0.4);
+        }
+
+        .service-card button:active {
+            transform: translateY(0);
+            box-shadow: 0 5px 10px rgba(255, 68, 68, 0.3);
+        }
+
+        .service-card {
+            animation: cardEntrance 0.8s ease-out;
+        }
+
+        @keyframes cardEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.show-modal {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: #1a1a2e;
+            margin: auto;
+            padding: 30px;
+            border: 1px solid #40e0d0;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 5px 15px rgba(64, 224, 208, 0.3);
+            position: relative;
+            transform: translateY(-50px);
+            opacity: 0;
+            animation: modalAppear 0.3s forwards ease-out;
+            color: #e0e6ed;
+        }
+
+        @keyframes modalAppear {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close-button {
+            color: #aaa;
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: #40e0d0;
+        }
+
+        .modal-content h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, #40e0d0, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .rate-card-details h3 {
+            font-size: 1.5rem;
+            color: #40e0d0;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(64, 224, 208, 0.3);
+            padding-bottom: 5px;
+        }
+
+        .rate-card-details ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .rate-card-details ul li {
+            padding: 8px 0;
+            border-bottom: 1px dashed rgba(224, 230, 237, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .rate-card-details ul li:last-child {
+            border-bottom: none;
+        }
+
+        .modal-note {
+            font-size: 0.9rem;
+            text-align: center;
+            margin-top: 30px;
+            color: #a0a6b0;
+        }
+
+        /* Added for specific service rates */
+        .hidden {
+            display: none;
+        }
+
+        /* Responsive adjustments for modal */
+        @media (max-width: 480px) {
+            .modal-content {
+                padding: 20px;
+            }
+            .modal-content h2 {
+                font-size: 1.8rem;
+            }
+            .rate-card-details h3 {
+                font-size: 1.3rem;
+            }
+            .rate-card-details ul li {
+                font-size: 0.95rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Animated background particles -->
     <div class="particles" id="particles"></div>
 
-    <!-- Scroll indicator -->
     <div class="scroll-indicator">
         <div class="scroll-progress" id="scrollProgress"></div>
     </div>
 
-    <!-- Add overlay div -->
     <div class="nav-overlay"></div>
 
-    <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
             <div class="logo">Benjamin Thomas</div>
@@ -776,12 +1088,12 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#services">Services</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>BENJAMIN THOMAS</h1>
@@ -792,7 +1104,7 @@
             </div>
             <p class="subtitle">Web Developer and Graphics Designer</p>
             <p class="description">
-                Passionate about creating innovative solutions with modern technologies. 
+                Passionate about creating innovative solutions with modern technologies.
                 I am a skilled web developer with a passion for creating user-friendly and efficient web applications.
                 I am also a skilled network technician well versed in designing, implementing, managing, and maintaining an organization's computer networks.
             </p>
@@ -803,7 +1115,6 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
             <h2 class="section-title fade-in">Technical Skills</h2>
@@ -854,7 +1165,6 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title fade-in">Featured Projects</h2>
@@ -885,7 +1195,7 @@
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">SQL</span>
                         </div>
-                       
+
                     </div>
                 </div>
                 <div class="project-card fade-in">
@@ -905,13 +1215,65 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title fade-in">My Services</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in" data-service="web-development">
+                    <div class="card-info">
+                        <div class="info">
+                           <h3 class="title">Web Development</h3>
+                            <p>Expert in building responsive and user-friendly websites using modern technologies.</p>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Python</span>
+                        </div>
+                        <button>View My Rate Card</button>
+                    </div>
+                </div>
+                <div class="service-card fade-in" data-service="graphic-design">
+                    <div class="card-info">
+                        <div class="info">
+                         <h3 class="title">Graphic Design</h3>
+                            <p>Creative graphic design solutions to bring your ideas to life.</p>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Adobe Photoshop</span>
+                            <span class="skill-tag">Adobe Illustrator</span>
+                            <span class="skill-tag">Figma</span>
+                        </div>
+                        <button>View My Rate Card</button>
+                    </div>
+                </div>
+                <div class="service-card fade-in" data-service="networking">
+                    <div class="card-info">
+                        <div class="info">
+                        <h3 class="title">Networking</h3>
+                            <p>Professional network management services including installation, configuration, and maintenance.</p>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Installing</span>
+                            <span class="skill-tag">Configuring</span>
+                            <span class="skill-tag">Maintaining</span>
+                            <span class="skill-tag">Troubleshooting</span>
+                        </div>
+                        <button>View My Rate Card</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="contact" class="contact">
         <div class="container">
             <div class="contact-content">
                 <h2 class="section-title fade-in">Let's Work Together</h2>
                 <p class="fade-in">
-                    I'm always interested in new opportunities and exciting projects. 
+                    I'm always interested in new opportunities and exciting projects.
                     Whether you have a question or just want to say hi, feel free to reach out!
                 </p>
                 <div class="contact-links">
@@ -932,6 +1294,42 @@
         </div>
     </section>
 
+    <div id="rateCardModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalServiceTitle">My Service Rate Card</h2>
+            <div class="rate-card-details">
+                <div id="web-development-rates" class="service-rates hidden">
+                    <h3>Web Development</h3>
+                    <ul>
+                        <li>Bronze Plan (5 pages+Domain+Hosting): Ksh. 25,000</li>
+                        <li>Silver Plan (8-10 pages+Domain+Hosting): Ksh. 38,000</li>
+                        <li>Gold Plan (10-15 pages+Domain+Hosting): Ksh. 47,000</li>
+                        <li>Platinum Plan (20 pages+Domain+Hosting): Ksh. *Negotiable</li>
+                        <li>Website Maintenance (monthly): *Negotiable</li>
+                    </ul>
+                </div>
+                <div id="graphic-design-rates" class="service-rates hidden">
+                    <h3>Graphic Design</h3>
+                    <ul>
+                        <li>Logo/Infographic/flyer/banner: Ksh. 500</li>
+                        <li>Brand Identity Package: Ksh. 1,000</li>
+                        <li>Brochure/moodboard/powerpoint slides: Ksh. 1,500</li>
+                        <li>Social Media Graphics (5 designs): Ksh. *Negotiable</li>
+                    </ul>
+                </div>
+                <div id="networking-rates" class="service-rates hidden">
+                    <h3>Networking</h3>
+                    <ul>
+                        <li>Network Setup & Configuration: Ksh. *On-site</li>
+                        <li>Network Troubleshooting: Ksh. *On-site</li>
+                        <li>Network Security Audit: Ksh. *On-site</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="modal-note">*All prices are estimates and may vary based on project complexity.</p>
+        </div>
+    </div>
     <script>
         // Create floating particles
         function createParticles() {
@@ -1057,6 +1455,77 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && navLinks.classList.contains('active')) {
                 toggleMenu();
+            }
+        });
+
+        // Modal functionality
+        const modal = document.getElementById("rateCardModal");
+        const closeButton = document.querySelector(".close-button");
+        const rateCardButtons = document.querySelectorAll(".service-card button");
+        const modalServiceTitle = document.getElementById("modalServiceTitle");
+        const serviceRateSections = document.querySelectorAll(".service-rates"); // Get all service rate divs
+
+        rateCardButtons.forEach(button => {
+            button.addEventListener("click", (event) => {
+                // Get the parent service card's data-service attribute
+                const serviceType = event.target.closest(".service-card").dataset.service;
+
+                // Hide all service rate sections
+                serviceRateSections.forEach(section => {
+                    section.classList.add("hidden");
+                });
+
+                // Show only the relevant service rate section
+                const targetRates = document.getElementById(`${serviceType}-rates`);
+                if (targetRates) {
+                    targetRates.classList.remove("hidden");
+                }
+
+                // Update the modal title
+                let titleText = "My Service Rate Card";
+                if (serviceType === "web-development") {
+                    titleText = "Web Development Rates";
+                } else if (serviceType === "graphic-design") {
+                    titleText = "Graphic Design Rates";
+                } else if (serviceType === "networking") {
+                    titleText = "Networking Rates";
+                }
+                modalServiceTitle.textContent = titleText;
+
+                modal.classList.add("show-modal");
+            });
+        });
+
+        closeButton.addEventListener("click", () => {
+            modal.classList.remove("show-modal");
+            // Reset the modal title and hide all rate sections when closing
+            modalServiceTitle.textContent = "My Service Rate Card";
+            serviceRateSections.forEach(section => {
+                section.classList.add("hidden");
+            });
+        });
+
+        // Close modal when clicking outside of it
+        window.addEventListener("click", (event) => {
+            if (event.target == modal) {
+                modal.classList.remove("show-modal");
+                // Reset the modal title and hide all rate sections when closing
+                modalServiceTitle.textContent = "My Service Rate Card";
+                serviceRateSections.forEach(section => {
+                    section.classList.add("hidden");
+                });
+            }
+        });
+
+        // Close modal when pressing escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('show-modal')) {
+                modal.classList.remove('show-modal');
+                // Reset the modal title and hide all rate sections when closing
+                modalServiceTitle.textContent = "My Service Rate Card";
+                serviceRateSections.forEach(section => {
+                    section.classList.add("hidden");
+                });
             }
         });
     </script>
